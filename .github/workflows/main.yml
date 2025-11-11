@@ -27,4 +27,4 @@ jobs:
         default_author: github_actions
         committer_email: actions@github.com
         message: 'Update files'
-        add: '["links.csv", "links.json"]'s
+        add: '["links.csv", "links.json"]'
