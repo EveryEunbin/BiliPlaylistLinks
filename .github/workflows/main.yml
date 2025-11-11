@@ -25,6 +25,6 @@ jobs:
       run: |
         git config user.name "github-actions"
         git config user.email "github-actions@github.com"
-        git add links.csv
-        git commit -m "Updated CSV file after running script" || exit 0
+        git add .
+        git commit -m "Updated files after running script" || exit 0
         git push
