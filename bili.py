@@ -30,7 +30,6 @@ with open('links.csv', 'w', newline='') as csvfile:
         short_url = current_url.replace("?bstar_from=bstar-web.ugc-video-detail.playlist.all", "")
         writer.writerow({'title': short_title, 'link': short_url})
         print(short_title, short_url)
-    writer.close()
 
 driver.quit()
 
