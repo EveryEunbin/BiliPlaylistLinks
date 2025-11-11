@@ -3,6 +3,7 @@ from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.by import By
 import time
 import csv
+import json
 
 options = Options()
 options.add_argument("--headless")
@@ -29,5 +30,12 @@ with open('links.csv', 'w', newline='') as csvfile:
         short_url = current_url.replace("?bstar_from=bstar-web.ugc-video-detail.playlist.all", "")
         writer.writerow({'title': short_title, 'link': short_url})
         print(short_title, short_url)
+    writer.close()
 
 driver.quit()
+
+with open('links.csv', mode='r', newline='') as csvfile:
+    data = list(csv.DictReader(csvfile))
+
+with open('links.json', mode='w') as jsonfile:
+    json.dump(data, jsonfile, indent=4, ensure_ascii=False)
