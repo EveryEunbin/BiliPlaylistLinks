@@ -25,7 +25,7 @@ with open('links.csv', 'w', newline='') as csvfile:
         driver.execute_script("arguments[0].click();", link)
         time.sleep(5)
         current_title = driver.title
-        short_title = current_title.replace(" - BiliBili", "")
+        short_title = current_title.replace(" - BiliBili", "").replace(" ", "_")
         current_url = driver.current_url
         short_url = current_url.replace("?bstar_from=bstar-web.ugc-video-detail.playlist.all", "")
         writer.writerow({'title': short_title, 'link': short_url})
