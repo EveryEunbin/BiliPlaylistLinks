@@ -8,7 +8,7 @@ import json
 options = Options()
 options.add_argument("--headless")
 
-url = 'https://www.bilibili.tv/th/video/4798436845557760'
+url = 'https://www.bilibili.tv/th/video/4794178776076288'
 
 driver = webdriver.Firefox(options=options)
 driver.get(url)
