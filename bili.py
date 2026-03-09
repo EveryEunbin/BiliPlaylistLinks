@@ -13,14 +13,19 @@ url = 'https://www.bilibili.tv/th/video/4789054274803201'
 driver = webdriver.Firefox(options=options)
 driver.get(url)
 print(driver.title)
-time.sleep(1)
+# time.sleep(1)
 
 with open('links.csv', 'w', newline='') as csvfile:
     fieldnames = ['title', 'link']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
 
+    time.sleep(5)
+
     links = driver.find_elements(By.CSS_SELECTOR, ".playlist-card")
+
+    print(len(links))
+
     for link in links:
         driver.execute_script("arguments[0].click();", link)
         time.sleep(2)
