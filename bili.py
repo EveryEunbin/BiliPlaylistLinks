@@ -8,7 +8,7 @@ import json
 options = Options()
 options.add_argument("--headless")
 
-url = 'https://www.bilibili.tv/th/video/4789054274803201'
+url = 'https://www.bilibili.tv/th/video/4789333874050048'
 
 driver = webdriver.Firefox(options=options)
 driver.get(url)
@@ -20,7 +20,7 @@ with open('links.csv', 'w', newline='') as csvfile:
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
 
-    div = driver.find_element(By.CSS_SELECTOR, ".playlist-virtual-container")
+    div = driver.find_element(By.CSS_SELECTOR, ".playlist-virtual-list")
     driver.execute_script("arguments[0].scrollTop = arguments[0].scrollHeight;", div)
 
     time.sleep(5)
