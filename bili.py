@@ -13,7 +13,7 @@ url = 'https://www.bilibili.tv/th/video/4789054274803201'
 driver = webdriver.Firefox(options=options)
 driver.get(url)
 print(driver.title)
-time.sleep(2)
+time.sleep(1)
 
 with open('links.csv', 'w', newline='') as csvfile:
     fieldnames = ['title', 'link']
@@ -23,7 +23,7 @@ with open('links.csv', 'w', newline='') as csvfile:
     links = driver.find_elements(By.CSS_SELECTOR, ".playlist-card")
     for link in links:
         driver.execute_script("arguments[0].click();", link)
-        time.sleep(5)
+        time.sleep(2)
         current_title = driver.title
         short_title = current_title.replace(" - BiliBili", "").replace(" ", "_").replace(",","")
         current_url = driver.current_url
