@@ -20,6 +20,9 @@ with open('links.csv', 'w', newline='') as csvfile:
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
 
+    div = driver.find_element(By.CSS_SELECTOR, ".playlist-virtual-container")
+    driver.execute_script("arguments[0].scrollTop = arguments[0].scrollHeight;", div)
+
     time.sleep(5)
 
     links = driver.find_elements(By.CSS_SELECTOR, ".playlist-card")
