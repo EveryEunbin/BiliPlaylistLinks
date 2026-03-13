@@ -8,19 +8,19 @@ import json
 options = Options()
 options.add_argument("--headless")
 
-url = 'https://www.bilibili.tv/th/video/4798788036072960'
+url = 'https://www.bilibili.tv/th/video/4797524973065728'
 
 driver = webdriver.Firefox(options=options)
 driver.get(url)
 print(driver.title)
-# time.sleep(1)
+time.sleep(5)
 
 with open('links.csv', 'w', newline='') as csvfile:
     fieldnames = ['title', 'link']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
 
-    time.sleep(5)
+    # time.sleep(5)
 
     links = driver.find_elements(By.CSS_SELECTOR, ".playlist-card")
 
